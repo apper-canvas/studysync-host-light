@@ -4,6 +4,7 @@ import Layout from "@/components/organisms/Layout";
 import Dashboard from "@/components/pages/Dashboard";
 import Courses from "@/components/pages/Courses";
 import Assignments from "@/components/pages/Assignments";
+import Students from "@/components/pages/Students";
 import Grades from "@/components/pages/Grades";
 import Calendar from "@/components/pages/Calendar";
 import Timer from "@/components/pages/Timer";
@@ -12,11 +13,12 @@ function App() {
   return (
     <BrowserRouter>
       <div className="min-h-screen bg-slate-50">
-        <Routes>
+<Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Dashboard />} />
             <Route path="courses" element={<Courses />} />
             <Route path="assignments" element={<Assignments />} />
+            <Route path="students" element={<Students />} />
             <Route path="grades" element={<Grades />} />
             <Route path="calendar" element={<Calendar />} />
             <Route path="timer" element={<Timer />} />

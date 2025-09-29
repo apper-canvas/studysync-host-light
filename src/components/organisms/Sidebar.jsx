@@ -5,10 +5,11 @@ import { cn } from "@/utils/cn";
 const Sidebar = ({ className, onItemClick }) => {
   const location = useLocation();
 
-  const navigationItems = [
+const navigationItems = [
     { name: "Dashboard", path: "/", icon: "Home" },
     { name: "Courses", path: "/courses", icon: "BookOpen" },
     { name: "Assignments", path: "/assignments", icon: "FileText" },
+    { name: "Students", path: "/students", icon: "Users" },
     { name: "Grades", path: "/grades", icon: "Trophy" },
     { name: "Calendar", path: "/calendar", icon: "Calendar" },
     { name: "Timer", path: "/timer", icon: "Clock" }
