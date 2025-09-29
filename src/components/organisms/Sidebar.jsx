@@ -1,7 +1,25 @@
 import { NavLink, useLocation } from "react-router-dom";
+import { useContext } from "react";
 import ApperIcon from "@/components/ApperIcon";
+import Button from "@/components/atoms/Button";
+import { AuthContext } from "../../App";
 import { cn } from "@/utils/cn";
 
+const LogoutButton = () => {
+  const { logout } = useContext(AuthContext);
+  
+  return (
+    <Button
+      variant="ghost"
+      size="sm"
+      onClick={logout}
+      className="p-1 h-auto hover:bg-white/20"
+      title="Logout"
+    >
+      <ApperIcon name="LogOut" className="w-4 h-4 text-slate-600" />
+    </Button>
+  );
+};
 const Sidebar = ({ className, onItemClick }) => {
   const location = useLocation();
 
@@ -65,16 +83,19 @@ const navigationItems = [
         </ul>
       </nav>
 
-      <div className="absolute bottom-6 left-4 right-4">
+<div className="absolute bottom-6 left-4 right-4">
         <div className="p-4 bg-gradient-to-r from-primary-50 to-secondary-50 rounded-lg border border-primary-200">
-          <div className="flex items-center space-x-3">
-            <div className="w-8 h-8 rounded-full bg-gradient-to-r from-primary-500 to-secondary-500 flex items-center justify-center">
-              <ApperIcon name="User" className="w-4 h-4 text-white" />
+          <div className="flex items-center justify-between space-x-3">
+            <div className="flex items-center space-x-3 flex-1 min-w-0">
+              <div className="w-8 h-8 rounded-full bg-gradient-to-r from-primary-500 to-secondary-500 flex items-center justify-center">
+                <ApperIcon name="User" className="w-4 h-4 text-white" />
+              </div>
+              <div className="flex-1 min-w-0">
+                <p className="text-sm font-medium text-slate-900 truncate">Student</p>
+                <p className="text-xs text-slate-500">Academic Year 2024</p>
+              </div>
             </div>
-            <div className="flex-1 min-w-0">
-              <p className="text-sm font-medium text-slate-900 truncate">Student</p>
-              <p className="text-xs text-slate-500">Academic Year 2024</p>
-            </div>
+            <LogoutButton />
           </div>
         </div>
       </div>
