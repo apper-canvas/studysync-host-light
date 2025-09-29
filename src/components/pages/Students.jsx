@@ -387,13 +387,13 @@ const Students = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <FormField
-              label="Grade"
+label="Grade"
               required
               error={!formData.grade && 'Grade is required'}
             >
               <Select
                 value={formData.grade}
-                onChange={(value) => handleInputChange('grade', value)}
+                onChange={(e) => handleInputChange('grade', e.target.value)}
                 options={[
                   { value: '', label: 'Select grade...' },
                   { value: '9', label: 'Grade 9' },
@@ -532,12 +532,12 @@ const Students = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <FormField
               label="Grade"
-              required
+required
               error={!formData.grade && 'Grade is required'}
             >
               <Select
                 value={formData.grade}
-                onChange={(value) => handleInputChange('grade', value)}
+                onChange={(e) => handleInputChange('grade', e.target.value)}
                 options={[
                   { value: '', label: 'Select grade...' },
                   { value: '9', label: 'Grade 9' },

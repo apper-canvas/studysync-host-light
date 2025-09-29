@@ -2,7 +2,7 @@ import { forwardRef } from "react";
 import { cn } from "@/utils/cn";
 
 const Select = forwardRef(
-  ({ className, children, ...props }, ref) => {
+  ({ className, children, options, ...props }, ref) => {
     return (
       <select
         className={cn(
@@ -12,7 +12,15 @@ const Select = forwardRef(
         ref={ref}
         {...props}
       >
-        {children}
+        {options ? (
+          options.map((option) => (
+            <option key={option.value} value={option.value}>
+              {option.label}
+            </option>
+          ))
+        ) : (
+          children
+        )}
       </select>
     );
   }
