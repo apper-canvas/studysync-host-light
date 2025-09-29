@@ -1,5 +1,33 @@
 import { toast } from 'react-toastify';
 
+// Helper function to sanitize form data and remove circular references
+function sanitizeFormData(data) {
+  if (data === null || data === undefined) return data;
+  
+  // Handle DOM elements and other problematic objects
+  if (typeof data === 'object' && data.constructor && 
+      (data instanceof HTMLElement || data.constructor.name.includes('HTML'))) {
+    return undefined; // Remove DOM elements
+  }
+  
+  if (typeof data === 'function') return undefined;
+  if (typeof data !== 'object') return data; // Return primitives as-is
+  
+  if (Array.isArray(data)) {
+    return data.map(item => sanitizeFormData(item)).filter(item => item !== undefined);
+  }
+  
+  // Handle plain objects
+  const sanitized = {};
+  for (const [key, value] of Object.entries(data)) {
+    const cleanValue = sanitizeFormData(value);
+    if (cleanValue !== undefined) {
+      sanitized[key] = cleanValue;
+    }
+  }
+  return sanitized;
+}
+
 class StudentsService {
   constructor() {
     // Initialize ApperClient
@@ -125,23 +153,28 @@ class StudentsService {
     }
   }
 
-  async create(studentData) {
+async create(studentData) {
     try {
       if (!this.apperClient) this.initializeClient();
       
+      // Sanitize form data to remove any DOM elements or circular references
+      const cleanData = sanitizeFormData(studentData);
+      console.log('Original studentData:', typeof studentData, Object.keys(studentData));
+      console.log('Sanitized studentData:', typeof cleanData, Object.keys(cleanData));
+      
       const params = {
         records: [{
-          Name: `${studentData.firstName} ${studentData.lastName}`,
-          first_name_c: studentData.firstName,
-          last_name_c: studentData.lastName,
-          email_c: studentData.email,
-          grade_c: studentData.grade,
-          status_c: studentData.status || 'active',
-          phone_number_c: studentData.phoneNumber || '',
-          address_c: studentData.address || '',
-          parent_name_c: studentData.parentName || '',
-          parent_email_c: studentData.parentEmail || '',
-          emergency_contact_c: studentData.emergencyContact || '',
+          Name: `${cleanData.firstName} ${cleanData.lastName}`,
+          first_name_c: cleanData.firstName,
+          last_name_c: cleanData.lastName,
+          email_c: cleanData.email,
+          grade_c: cleanData.grade,
+          status_c: cleanData.status || 'active',
+          phone_number_c: cleanData.phoneNumber || '',
+          address_c: cleanData.address || '',
+          parent_name_c: cleanData.parentName || '',
+          parent_email_c: cleanData.parentEmail || '',
+          emergency_contact_c: cleanData.emergencyContact || '',
           enrollment_date_c: new Date().toISOString().split('T')[0],
           last_active_c: new Date().toISOString().split('T')[0]
         }]
