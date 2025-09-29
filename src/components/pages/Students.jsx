@@ -5,7 +5,7 @@ import ApperIcon from '@/components/ApperIcon';
 import Button from '@/components/atoms/Button';
 import Input from '@/components/atoms/Input';
 import Select from '@/components/atoms/Select';
-import Card from '@/components/atoms/Card';
+import { Card } from '@/components/atoms/Card';
 import Badge from '@/components/atoms/Badge';
 import Modal from '@/components/molecules/Modal';
 import FormField from '@/components/molecules/FormField';
