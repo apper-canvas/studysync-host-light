@@ -101,9 +101,17 @@ class CoursesService {
     }
   }
 
-  async create(courseData) {
+async create(courseData) {
     try {
       if (!this.apperClient) this.initializeClient();
+      
+      // Get current user from Redux store to satisfy RLS policy
+      const state = window.__REDUX_STORE__?.getState();
+      const currentUser = state?.user?.user;
+      
+      if (!currentUser || !currentUser.userId) {
+        throw new Error('User authentication required for creating courses');
+      }
       
       const params = {
         records: [{
@@ -114,7 +122,8 @@ class CoursesService {
           professor_c: courseData.professor,
           color_c: courseData.color,
           semester_c: courseData.semester,
-          is_active_c: courseData.isActive !== false
+          is_active_c: courseData.isActive !== false,
+          owner_id_c: currentUser.userId
         }]
       };
       
