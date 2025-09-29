@@ -1,0 +1,52 @@
+[
+  {
+    "Id": 1,
+    "name": "Computer Science Fundamentals",
+    "code": "CS101",
+    "credits": 3,
+    "professor": "Dr. Sarah Johnson",
+    "color": "#6366f1",
+    "semester": "Fall 2024",
+    "isActive": true
+  },
+  {
+    "Id": 2,
+    "name": "Calculus I",
+    "code": "MATH141",
+    "credits": 4,
+    "professor": "Prof. Michael Chen",
+    "color": "#8b5cf6",
+    "semester": "Fall 2024",
+    "isActive": true
+  },
+  {
+    "Id": 3,
+    "name": "English Composition",
+    "code": "ENG101",
+    "credits": 3,
+    "professor": "Dr. Emily Rodriguez",
+    "color": "#06b6d4",
+    "semester": "Fall 2024",
+    "isActive": true
+  },
+  {
+    "Id": 4,
+    "name": "Physics I",
+    "code": "PHYS201",
+    "credits": 4,
+    "professor": "Dr. James Wilson",
+    "color": "#10b981",
+    "semester": "Fall 2024",
+    "isActive": true
+  },
+  {
+    "Id": 5,
+    "name": "World History",
+    "code": "HIST105",
+    "credits": 3,
+    "professor": "Prof. Lisa Thompson",
+    "color": "#f59e0b",
+    "semester": "Fall 2024",
+    "isActive": false
+  }
+]
