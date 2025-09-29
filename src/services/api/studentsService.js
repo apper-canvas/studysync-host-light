@@ -59,9 +59,6 @@ class StudentsService {
           {"field": {"Name": "status_c"}},
           {"field": {"Name": "phone_number_c"}},
           {"field": {"Name": "address_c"}},
-          {"field": {"Name": "parent_name_c"}},
-          {"field": {"Name": "parent_email_c"}},
-          {"field": {"Name": "emergency_contact_c"}},
           {"field": {"Name": "enrollment_date_c"}},
           {"field": {"Name": "last_active_c"}}
         ]
@@ -85,9 +82,6 @@ class StudentsService {
         status: student.status_c || 'active',
         phoneNumber: student.phone_number_c,
         address: student.address_c,
-        parentName: student.parent_name_c,
-        parentEmail: student.parent_email_c,
-        emergencyContact: student.emergency_contact_c,
         enrollmentDate: student.enrollment_date_c,
         lastActive: student.last_active_c
       }));
@@ -116,9 +110,6 @@ class StudentsService {
           {"field": {"Name": "status_c"}},
           {"field": {"Name": "phone_number_c"}},
           {"field": {"Name": "address_c"}},
-          {"field": {"Name": "parent_name_c"}},
-          {"field": {"Name": "parent_email_c"}},
-          {"field": {"Name": "emergency_contact_c"}},
           {"field": {"Name": "enrollment_date_c"}},
           {"field": {"Name": "last_active_c"}}
         ]
@@ -141,9 +132,6 @@ class StudentsService {
         status: student.status_c || 'active',
         phoneNumber: student.phone_number_c,
         address: student.address_c,
-        parentName: student.parent_name_c,
-        parentEmail: student.parent_email_c,
-        emergencyContact: student.emergency_contact_c,
         enrollmentDate: student.enrollment_date_c,
         lastActive: student.last_active_c
       };
@@ -172,9 +160,6 @@ async create(studentData) {
           status_c: cleanData.status || 'active',
           phone_number_c: cleanData.phoneNumber || '',
           address_c: cleanData.address || '',
-          parent_name_c: cleanData.parentName || '',
-          parent_email_c: cleanData.parentEmail || '',
-          emergency_contact_c: cleanData.emergencyContact || '',
           enrollment_date_c: new Date().toISOString().split('T')[0],
           last_active_c: new Date().toISOString().split('T')[0]
         }]
@@ -210,9 +195,6 @@ async create(studentData) {
           status: created.status_c || 'active',
           phoneNumber: created.phone_number_c,
           address: created.address_c,
-          parentName: created.parent_name_c,
-          parentEmail: created.parent_email_c,
-          emergencyContact: created.emergency_contact_c,
           enrollmentDate: created.enrollment_date_c,
           lastActive: created.last_active_c
         };
@@ -242,9 +224,6 @@ async create(studentData) {
           status_c: studentData.status,
           phone_number_c: studentData.phoneNumber || '',
           address_c: studentData.address || '',
-          parent_name_c: studentData.parentName || '',
-          parent_email_c: studentData.parentEmail || '',
-          emergency_contact_c: studentData.emergencyContact || ''
         }]
       };
       
@@ -278,9 +257,6 @@ async create(studentData) {
           status: updated.status_c,
           phoneNumber: updated.phone_number_c,
           address: updated.address_c,
-          parentName: updated.parent_name_c,
-          parentEmail: updated.parent_email_c,
-          emergencyContact: updated.emergency_contact_c,
           enrollmentDate: updated.enrollment_date_c,
           lastActive: updated.last_active_c
         };

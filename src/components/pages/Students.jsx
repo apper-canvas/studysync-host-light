@@ -31,11 +31,8 @@ const Students = () => {
     email: '',
     grade: '',
     status: 'active',
-    phoneNumber: '',
-    address: '',
-    parentName: '',
-    parentEmail: '',
-    emergencyContact: ''
+phoneNumber: '',
+    address: ''
   });
 
   useEffect(() => {
@@ -68,10 +65,7 @@ const Students = () => {
       grade: '',
       status: 'active',
       phoneNumber: '',
-      address: '',
-      parentName: '',
-      parentEmail: '',
-      emergencyContact: ''
+address: ''
     });
   };
 
@@ -90,10 +84,7 @@ const Students = () => {
       status: student.status,
       phoneNumber: student.phoneNumber,
       address: student.address,
-      parentName: student.parentName,
-      parentEmail: student.parentEmail,
-      emergencyContact: student.emergencyContact
-    });
+});
     setSelectedStudent(student);
     setIsEditModalOpen(true);
   };
@@ -300,12 +291,6 @@ const Students = () => {
                           {student.phoneNumber}
                         </div>
                       )}
-                      {student.parentName && (
-                        <div className="flex items-center gap-2 text-sm text-gray-600">
-                          <ApperIcon name="User" size={14} />
-                          Parent: {student.parentName}
-                        </div>
-                      )}
                     </div>
                   </div>
 
@@ -435,32 +420,6 @@ label="Grade"
             />
           </FormField>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <FormField label="Parent/Guardian Name">
-              <Input
-                value={formData.parentName}
-                onChange={(e) => handleInputChange('parentName', e.target.value)}
-                placeholder="Enter parent name"
-              />
-            </FormField>
-
-            <FormField label="Parent Email">
-              <Input
-                type="email"
-                value={formData.parentEmail}
-                onChange={(e) => handleInputChange('parentEmail', e.target.value)}
-                placeholder="Enter parent email"
-              />
-            </FormField>
-          </div>
-
-          <FormField label="Emergency Contact">
-            <Input
-              value={formData.emergencyContact}
-              onChange={(e) => handleInputChange('emergencyContact', e.target.value)}
-              placeholder="Enter emergency contact"
-            />
-          </FormField>
 
           <div className="flex justify-end gap-3">
             <Button
@@ -579,32 +538,6 @@ required
             />
           </FormField>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <FormField label="Parent/Guardian Name">
-              <Input
-                value={formData.parentName}
-                onChange={(e) => handleInputChange('parentName', e.target.value)}
-                placeholder="Enter parent name"
-              />
-            </FormField>
-
-            <FormField label="Parent Email">
-              <Input
-                type="email"
-                value={formData.parentEmail}
-                onChange={(e) => handleInputChange('parentEmail', e.target.value)}
-                placeholder="Enter parent email"
-              />
-            </FormField>
-          </div>
-
-          <FormField label="Emergency Contact">
-            <Input
-              value={formData.emergencyContact}
-              onChange={(e) => handleInputChange('emergencyContact', e.target.value)}
-              placeholder="Enter emergency contact"
-            />
-          </FormField>
 
           <div className="flex justify-end gap-3">
             <Button
