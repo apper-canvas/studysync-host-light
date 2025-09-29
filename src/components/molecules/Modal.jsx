@@ -66,8 +66,10 @@ const Modal = ({
                 <ApperIcon name="X" className="w-5 h-5 text-slate-500" />
               </button>
             </div>
-            <div className="p-6">
-              {children}
+<div className="flex flex-col max-h-96">
+              <div className="flex-1 overflow-y-auto p-6 pb-20">
+                {children}
+              </div>
             </div>
           </motion.div>
         </div>
